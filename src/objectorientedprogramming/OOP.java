@@ -9,18 +9,18 @@ public class OOP
         Punkt p;
         p = new Punkt();
         
-        p.x = 5;
-        p.y = 20;
+        p.setX(5);
+        p.setY(20);
         
-        System.out.println("p.x = " + p.x);
-        System.out.println("p.y = " + p.y);
+        System.out.println("p.x = " + p.getX());
+        System.out.println("p.y = " + p.getY());
         
         Punkt r = new Punkt(10, 15);
-        System.out.println(r.x);
-        System.out.println(r.y);
+        System.out.println(r.getX());
+        System.out.println(r.getY());
         
         Punkt s = new Punkt(11, "Polprosta");
-        System.out.println("Atrybut 'x' obiektu 's' ma wartosc = " + s.x);
+        System.out.println("Atrybut 'x' obiektu 's' ma wartosc = " + s.getX());
         System.out.println("Atrybut 'z' obiektu 's' to ciag znakow: " + s.z);
        
         Test pierwszyObiekt = new Test();
@@ -62,6 +62,31 @@ public class OOP
         oszczednosciowe.wplac(4000);
         System.out.println("Saldo konta to: " + oszczednosciowe.getSaldo());
         
+        // Część druga z wykorzystaniem superklasy Object
         
+        Punkt z = new Punkt(4,10);
+        System.out.println(z.getClass());
+        Object a = new Punkt(50,20);
+        ((Punkt)a).getX();
+        
+        if(p.equals(a))
+            System.out.println("Przypadkiem koordynaty punktów są sobie równe");
+        
+        ((Punkt)a).setX(5);
+        
+        if(p.equals(a))
+            System.out.println("Przypadkiem koordynaty punktów są sobie równe");
+        System.out.println(p);
+        
+        Object[] tablicaPunktow = new Punkt[5];
+        tablicaPunktow[0] = new Punkt(2, 12);
+        tablicaPunktow[1] = new Punkt(21, 12);
+        tablicaPunktow[2] = new Punkt(91, 1);
+        tablicaPunktow[4] = new Punkt(1, 1);
+        
+        for(Object licznik: tablicaPunktow)
+        {
+            System.out.println(licznik);
+        }
     }
 }
